@@ -2,7 +2,7 @@ import { DragonNewsData } from "@/data";
 import React from "react";
 
 const RelatedNews = ({ layout = "horizontal" }) => {
-  console.log(data);
+ 
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold mb-5 border-b pb-3">Related News</h2>
