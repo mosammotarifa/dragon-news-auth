@@ -5,7 +5,7 @@ const Header = () => {
   const today = new Date();
 
   return (
-    <div className="w-full b border-gray-200 bg-white py-4">
+    <div className="w-full  border-gray-200 bg-white py-4">
       <div className="flex justify-center">
         <Image
           src={"/assets/logo.png"}

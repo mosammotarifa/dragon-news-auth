@@ -1,9 +1,7 @@
 import { DragonNewsData } from "@/data";
 import React from "react";
 
-
 const RelatedNews = ({ layout = "horizontal" }) => {
-  const data = DragonNewsData;
   console.log(data);
   return (
     <div className="mt-8">
@@ -12,7 +10,7 @@ const RelatedNews = ({ layout = "horizontal" }) => {
       <div
         className={`${layout === "vertical" ? "flex " : "grid grid-cols-2"}gap-5`}
       >
-        {data.slice(9, 12).map((news) => (
+        {DragonNewsData.slice(9, 12).map((news) => (
           <div
             key={news.id}
             className="border border-gray-200 mt-5 rounded-lg overflow-hidden hover:shadow-md transition-shadow"

@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 import NavLink from "./NavLink";
 
+
+
 const Navbar = () => {
   return (
     <div className="w-full  border-gray-200">
