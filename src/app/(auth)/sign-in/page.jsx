@@ -1,8 +1,12 @@
-'use client'
+"use client";
 import { signIn } from "@/lib/auth.client";
 import React from "react";
+import { Eye, EyeSlash } from "@gravity-ui/icons";
+import { Button, Input, InputGroup, Label, TextField } from "@heroui/react";
+import { useState } from "react";
 
 const Register = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
     const fromdata = new FormData(e.currentTarget);
@@ -21,22 +25,46 @@ const Register = () => {
       <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
 
       <form onSubmit={onSubmit} className="space-y-4">
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="Enter your email"
-          className="w-full border p-3 rounded-md"
-        />
+        {/* Email */}
+        <TextField name="email" isRequired className="w-full">
+          <Input
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            className="w-full border p-3 rounded-md"
+          />
+        </TextField>
 
-        <input
-          type="password"
-          name="password"
-          required
-          placeholder="Enter your password"
-          className="w-full border p-3 rounded-md"
-        />
+        {/* Password */}
+        <TextField name="password" isRequired className="w-full">
+          <InputGroup className="w-full">
+            <InputGroup.Input
+              name="password"
+              type={isVisible ? "text" : "password"}
+              placeholder="Enter your password"
+              className="w-full border p-3 rounded-md"
+            />
 
+            <InputGroup.Suffix className="pe-0">
+              <Button
+                type="button"
+                isIconOnly
+                aria-label={isVisible ? "Hide password" : "Show password"}
+                size="sm"
+                variant="ghost"
+                onPress={() => setIsVisible((prev) => !prev)}
+              >
+                {isVisible ? (
+                  <Eye className="size-4" />
+                ) : (
+                  <EyeSlash className="size-4" />
+                )}
+              </Button>
+            </InputGroup.Suffix>
+          </InputGroup>
+        </TextField>
+
+        {/* Submit */}
         <button
           type="submit"
           className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700"

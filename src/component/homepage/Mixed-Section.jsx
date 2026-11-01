@@ -1,8 +1,22 @@
+"use client"
+import { signIn } from "@/lib/auth.client";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import React from "react";
 
 const MixedSection = () => {
+  const handleSignIinGoogle=async()=>{
+    const data =await signIn.social({
+      provider:"google"
+    })
+    console.log(data)
+  }
+  const handleSignIinGithub=async()=>{
+    const resdata =await signIn.social({
+      provider:"github"
+    })
+    console.log(resdata)
+  }
   return (
     <div>
       <div className="border border-gray-200 rounded-lg p-4 mt-4">
@@ -10,6 +24,7 @@ const MixedSection = () => {
 
         <div className="flex flex-col gap-3">
           <Button
+          onClick={handleSignIinGoogle}
             variant="bordered"
             className="w-full border-gray-300 rounded-md font-medium border"
           >
@@ -17,6 +32,7 @@ const MixedSection = () => {
           </Button>
 
           <Button
+          onClick={handleSignIinGithub}
             variant="bordered"
             className="w-full border-gray-300 rounded-md font-medium border"
           >

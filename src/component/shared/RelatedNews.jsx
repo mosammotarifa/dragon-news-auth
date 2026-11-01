@@ -1,8 +1,8 @@
 import { DragonNewsData } from "@/data";
+import Link from "next/link";
 import React from "react";
 
 const RelatedNews = ({ layout = "horizontal" }) => {
- 
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold mb-5 border-b pb-3">Related News</h2>
@@ -16,11 +16,13 @@ const RelatedNews = ({ layout = "horizontal" }) => {
             className="border border-gray-200 mt-5 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
           >
             {/* Image */}
-            <img
-              src={news.image_url}
-              alt={news.title}
-              className="w-full h-48 object-cover"
-            />
+            <Link href={`/news/${news.id}`}>
+              <img
+                src={news.image_url}
+                alt={news.title}
+                className="w-full h-48 object-cover"
+              />
+            </Link>
 
             {/* Content */}
             <div className="p-4">
