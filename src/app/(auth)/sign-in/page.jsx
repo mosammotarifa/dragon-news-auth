@@ -5,7 +5,7 @@ import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { Button, Input, InputGroup, Label, TextField } from "@heroui/react";
 import { useState } from "react";
 
-const Register = () => {
+const SignIn = () => {
   const [isVisible, setIsVisible] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -76,4 +76,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignIn;
